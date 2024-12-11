@@ -3,7 +3,7 @@
 #include <string>
 #include <crystal_constructor/crystal_model/crystal_model.h>
 
-enum UserCommand {
+enum class UserCommand {
     PRINT,
     HELP,
     EXIT,
