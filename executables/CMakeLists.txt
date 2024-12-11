@@ -1,0 +1,2 @@
+add_executable(text_based_application text_based_application.cpp)
+target_link_libraries(text_based_application PRIVATE crystal_model cxx_setup)

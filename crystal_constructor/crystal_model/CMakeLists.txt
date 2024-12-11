@@ -1,0 +1,2 @@
+add_library(crystal_model crystal_model.cpp)
+target_link_libraries(crystal_model PUBLIC cxx_setup)
