@@ -1,0 +1,4 @@
+[submodule "crystal_constructor/external/glfw"]
+	path = crystal_constructor/external/glfw
+	url = https://github.com/glfw/glfw
+	branch = master
