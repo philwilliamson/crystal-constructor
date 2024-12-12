@@ -1,1 +1,2 @@
 add_subdirectory(crystal_model)
+add_subdirectory(external/glfw)

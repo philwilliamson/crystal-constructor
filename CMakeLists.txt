@@ -8,6 +8,10 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 message(STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
+option(GLFW_BUILD_DOCS OFF)
+option(GLFW_BUILD_EXAMPLES OFF)
+option(GLFW_BUILD_TESTS OFF)
+
 add_library(cxx_setup INTERFACE)
 target_compile_options(cxx_setup
   INTERFACE -Wall -Wpedantic -Wextra)
