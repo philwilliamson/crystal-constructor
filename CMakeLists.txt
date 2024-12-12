@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10.4)
 project(crystal_constructor VERSION 0.0.1
                     DESCRIPTION "An application for building atomic crystal models"
-                    LANGUAGES CXX)
+                    LANGUAGES CXX C)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug CACHE STRING "" FORCE)

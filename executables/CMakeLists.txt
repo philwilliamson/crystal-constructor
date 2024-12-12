@@ -2,4 +2,4 @@ add_executable(text_based_application text_based_application.cpp)
 target_link_libraries(text_based_application PRIVATE crystal_model cxx_setup)
 
 add_executable(graphical_application graphical_application.cpp)
-target_link_libraries(graphical_application PRIVATE crystal_model glfw cxx_setup)
+target_link_libraries(graphical_application PRIVATE crystal_model glfw glad cxx_setup)
