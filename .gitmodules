@@ -2,3 +2,7 @@
 	path = crystal_constructor/external/glfw
 	url = https://github.com/glfw/glfw
 	branch = master
+[submodule "crystal_constructor/external/glad"]
+	path = crystal_constructor/external/glad
+	url = https://github.com/Dav1dde/glad
+	branch = c
