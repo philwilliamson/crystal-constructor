@@ -6,3 +6,7 @@
 	path = crystal_constructor/external/glad
 	url = https://github.com/Dav1dde/glad
 	branch = c
+[submodule "crystal_constructor/external/glm"]
+	path = crystal_constructor/external/glm
+	url = https://github.com/g-truc/glm
+	branch = master
