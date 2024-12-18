@@ -5,4 +5,5 @@ target_include_directories(glad PUBLIC external/glad/include/)
 
 # crystal constructor libraries
 add_subdirectory(crystal_model)
+add_subdirectory(opengl_graphics)
 add_subdirectory(utils)
