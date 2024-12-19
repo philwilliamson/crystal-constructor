@@ -5,6 +5,8 @@
 #include <iostream>
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <crystal_constructor/utils/get_file_contents.h>
 
@@ -18,6 +20,7 @@ public:
     GLuint GetId() const;
 
     void Activate() const;
+    void UpdateUniformMatrix4fv(const char* name, glm::mat4 value) const;
     void Delete() const;
 
 private:
