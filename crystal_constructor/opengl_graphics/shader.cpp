@@ -42,6 +42,7 @@ void Shader::Activate() const
 
 void Shader::UpdateUniformMatrix4fv(const char* name, glm::mat4 value) const
 {
+    glUseProgram(ID);
     glUniformMatrix4fv(glGetUniformLocation(ID, name), 1, GL_FALSE, glm::value_ptr(value));
 }
 
