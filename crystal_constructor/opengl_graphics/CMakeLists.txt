@@ -1,2 +1,2 @@
-add_library(opengl_graphics vbo.cpp ebo.cpp vao.cpp)
-target_link_libraries(opengl_graphics PUBLIC glad cxx_setup)
+add_library(opengl_graphics vbo.cpp ebo.cpp vao.cpp shader.cpp)
+target_link_libraries(opengl_graphics PUBLIC glad utils cxx_setup)
