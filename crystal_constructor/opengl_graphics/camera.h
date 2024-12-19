@@ -16,8 +16,8 @@ public:
 
 private:
     float aspect_{};
-    float theta_{90.0f};
-    float phi_{0.0f};
+    float theta_{glm::radians(90.0f)};
+    float phi_{glm::radians(0.0f)};
     float radius_{2.0f};
     bool mouseDown_{false};
     float sensitivityFactor_{0.01f};
