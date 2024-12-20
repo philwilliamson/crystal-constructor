@@ -16,9 +16,9 @@ public:
     CrystalModel& UpdateCHat(crystal_constructor::crystal_model::Vector3 vector);
 
 private:
-    crystal_constructor::crystal_model::Vector3 a_hat{1.0, 0.0, 0.0};
-    crystal_constructor::crystal_model::Vector3 b_hat{0.0, 1.0, 0.0};
-    crystal_constructor::crystal_model::Vector3 c_hat{0.0, 0.0, 1.0};
+    crystal_constructor::crystal_model::Vector3 a_hat_{1.0, 0.0, 0.0};
+    crystal_constructor::crystal_model::Vector3 b_hat_{0.0, 1.0, 0.0};
+    crystal_constructor::crystal_model::Vector3 c_hat_{0.0, 0.0, 1.0};
 };
 
 }} // model for storing crystal state
