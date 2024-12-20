@@ -4,12 +4,12 @@ namespace crystal_constructor{ namespace opengl_graphics {
 
 VAO::VAO()
 {
-    glGenVertexArrays(1, &ID);
+    glGenVertexArrays(1, &ID_);
 }
 
 GLuint VAO::GetId() const
 {
-    return ID;
+    return ID_;
 }
 
 void VAO::LinkAttrib(VBO& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, void* offset) const
@@ -22,7 +22,7 @@ void VAO::LinkAttrib(VBO& VBO, GLuint layout, GLuint numComponents, GLenum type,
 
 void VAO::Bind() const
 {
-    glBindVertexArray(ID);
+    glBindVertexArray(ID_);
 }
 
 void VAO::Unbind() const
@@ -32,7 +32,7 @@ void VAO::Unbind() const
 
 void VAO::Delete() const
 {
-    glDeleteVertexArrays(1, &ID);
+    glDeleteVertexArrays(1, &ID_);
 }
 
 }} // class for handling an OpenGL vertex array object

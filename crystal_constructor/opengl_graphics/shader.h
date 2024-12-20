@@ -24,7 +24,7 @@ public:
     void Delete() const;
 
 private:
-    GLuint ID{};
+    GLuint ID_{};
 
     void buildErrors(unsigned int shader, const char* type);
 };

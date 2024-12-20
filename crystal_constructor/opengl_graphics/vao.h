@@ -19,7 +19,7 @@ public:
     void Delete() const;
 
 private:
-    GLuint ID{};
+    GLuint ID_{};
 };
 
 }} // class for handling an OpenGL vertex array object

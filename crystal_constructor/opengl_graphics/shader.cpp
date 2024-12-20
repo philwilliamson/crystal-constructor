@@ -20,11 +20,11 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile)
     glCompileShader(fragmentShader);
     buildErrors(fragmentShader, "FRAGMENT");
 
-    ID = glCreateProgram();
-    glAttachShader(ID, vertexShader);
-    glAttachShader(ID, fragmentShader);
-    glLinkProgram(ID);
-    buildErrors(ID, "PROGRAM");
+    ID_ = glCreateProgram();
+    glAttachShader(ID_, vertexShader);
+    glAttachShader(ID_, fragmentShader);
+    glLinkProgram(ID_);
+    buildErrors(ID_, "PROGRAM");
 
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
@@ -32,23 +32,23 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile)
 
 GLuint Shader::GetId() const
 {
-    return ID;
+    return ID_;
 }
 
 void Shader::Activate() const
 {
-    glUseProgram(ID);
+    glUseProgram(ID_);
 }
 
 void Shader::UpdateUniformMatrix4fv(const char* name, glm::mat4 value) const
 {
-    glUseProgram(ID);
-    glUniformMatrix4fv(glGetUniformLocation(ID, name), 1, GL_FALSE, glm::value_ptr(value));
+    glUseProgram(ID_);
+    glUniformMatrix4fv(glGetUniformLocation(ID_, name), 1, GL_FALSE, glm::value_ptr(value));
 }
 
 void Shader::Delete() const
 {
-    glDeleteProgram(ID);
+    glDeleteProgram(ID_);
 }
 
 void Shader::buildErrors(unsigned int shader, const char* type)

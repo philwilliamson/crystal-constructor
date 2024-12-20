@@ -4,19 +4,19 @@ namespace crystal_constructor{ namespace opengl_graphics {
 
 VBO::VBO(std::vector<Vertex>& vertices)
 {
-    glGenBuffers(1, &ID);
-    glBindBuffer(GL_ARRAY_BUFFER, ID);
+    glGenBuffers(1, &ID_);
+    glBindBuffer(GL_ARRAY_BUFFER, ID_);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
 }
 
 GLuint VBO::GetId() const
 {
-    return ID;
+    return ID_;
 }
 
 void VBO::Bind() const
 {
-    glBindBuffer(GL_ARRAY_BUFFER, ID);
+    glBindBuffer(GL_ARRAY_BUFFER, ID_);
 }
 
 void VBO::Unbind() const
@@ -26,7 +26,7 @@ void VBO::Unbind() const
 
 void VBO::Delete() const
 {
-    glDeleteBuffers(1, &ID);
+    glDeleteBuffers(1, &ID_);
 }
 
 }} // class for handling an OpenGL vertex buffer object
