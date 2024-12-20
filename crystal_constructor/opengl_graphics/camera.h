@@ -17,6 +17,7 @@ public:
     glm::mat4 GetMatrix() const;
 
     void UpdateFromInputs(GLFWwindow* window, float deltaTime);
+    void SetAspect(float aspect);
 
 private:
     float aspect_{};

@@ -68,5 +68,10 @@ void Camera::UpdateFromInputs(GLFWwindow* window, float deltaTime)
     }
 }
 
+void Camera::SetAspect(float aspect)
+{
+    aspect_ = aspect;
+}
+
 }} // class for handling camera data
     
