@@ -17,8 +17,6 @@ class Shader
 public:
     Shader(const char* vertexFile, const char* fragmentFile);
 
-    GLuint GetId() const;
-
     void Activate() const;
     void UpdateUniformMatrix4fv(const char* name, glm::mat4 value) const;
     void Delete() const;

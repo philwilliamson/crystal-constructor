@@ -18,8 +18,6 @@ class VBO
 public:
     explicit VBO(std::vector<Vertex>& vertices);
 
-    GLuint GetId() const;
-    
     void Bind() const;
     void Unbind() const;
     void Delete() const;

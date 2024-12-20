@@ -30,11 +30,6 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile)
     glDeleteShader(fragmentShader);
 }
 
-GLuint Shader::GetId() const
-{
-    return ID_;
-}
-
 void Shader::Activate() const
 {
     glUseProgram(ID_);

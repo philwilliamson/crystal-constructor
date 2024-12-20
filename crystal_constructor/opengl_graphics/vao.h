@@ -11,8 +11,6 @@ class VAO
 public:
     VAO();
 
-    GLuint GetId() const;
-
     void LinkAttrib(VBO& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, void* offset) const;
     void Bind() const;
     void Unbind() const;

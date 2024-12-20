@@ -12,8 +12,6 @@ class EBO
 public:
     explicit EBO(std::vector<GLuint>& indices);
 
-    GLuint GetId() const;
-
     void Bind() const;
     void Unbind() const;
     void Delete() const;

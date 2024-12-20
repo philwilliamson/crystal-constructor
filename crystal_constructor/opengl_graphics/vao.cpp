@@ -7,11 +7,6 @@ VAO::VAO()
     glGenVertexArrays(1, &ID_);
 }
 
-GLuint VAO::GetId() const
-{
-    return ID_;
-}
-
 void VAO::LinkAttrib(VBO& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, void* offset) const
 {
     VBO.Bind();
