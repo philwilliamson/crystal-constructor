@@ -11,17 +11,17 @@ void CrystalModel::PrintPOSCAR() const {
     std::cout << c_hat_.x  << " " << c_hat_.y  << " "  << c_hat_.z << '\n';
 }
 
-CrystalModel& CrystalModel::UpdateAHat(crystal_constructor::crystal_model::Vector3 vector) {
+CrystalModel& CrystalModel::UpdateAHat(Vector3 vector) {
     a_hat_ = vector;
     return *this;
 }
 
-CrystalModel& CrystalModel::UpdateBHat(crystal_constructor::crystal_model::Vector3 vector) {
+CrystalModel& CrystalModel::UpdateBHat(Vector3 vector) {
     b_hat_ = vector;
     return *this;
 }
 
-CrystalModel& CrystalModel::UpdateCHat(crystal_constructor::crystal_model::Vector3 vector) {
+CrystalModel& CrystalModel::UpdateCHat(Vector3 vector) {
     c_hat_ = vector;
     return *this;
 }
