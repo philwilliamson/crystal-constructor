@@ -11,6 +11,10 @@ public:
     CrystalModel() = default;
     void PrintPOSCAR() const;
 
+    Vector3 GetAHat() const;
+    Vector3 GetBHat() const;
+    Vector3 GetCHat() const;
+
     CrystalModel& SetAHat(Vector3 vector);
     CrystalModel& SetBHat(Vector3 vector);
     CrystalModel& SetCHat(Vector3 vector);
