@@ -2,6 +2,7 @@
 #define GRAPHICS_CRYSTAL_MODEL_VIEW_H
 
 #include <vector>
+#include <cmath>
 
 #include <glad/glad.h>
 
@@ -22,6 +23,7 @@ public:
     explicit GraphicsCrystalModelView(const CrystalModel& crystalModel);
 
     CellMeshData GetCellMeshData() const;
+    glm::mat4  GetModelMatrix() const;
 
 private:
     const CrystalModel& crystalModel_{};

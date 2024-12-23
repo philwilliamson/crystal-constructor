@@ -66,4 +66,29 @@ CellMeshData GraphicsCrystalModelView::GetCellMeshData() const
     return cellMeshData;
 }
 
+glm::mat4  GraphicsCrystalModelView::GetModelMatrix() const
+{
+    Vector3 modelAHat{crystalModel_.GetAHat()};
+    Vector3 modelBHat{crystalModel_.GetBHat()};
+    Vector3 modelCHat{crystalModel_.GetCHat()};
+
+    glm::vec3 aHat{modelAHat.x, modelAHat.y, modelAHat.z};
+    glm::vec3 bHat{modelBHat.x, modelBHat.y, modelBHat.z};
+    glm::vec3 cHat{modelCHat.x, modelCHat.y, modelCHat.z};
+
+    glm::vec3 diagonal = aHat + bHat + cHat;
+
+    float scaleFactor = std::sqrt(3.0f) / glm::length(diagonal);
+
+    glm::mat4 modelMatrix
+    {
+        glm::vec4{scaleFactor, 0.0f, 0.0f, 0.0f},
+        glm::vec4{0.0f, scaleFactor, 0.0f, 0.0f},
+        glm::vec4{0.0f, 0.0f, scaleFactor, 0.0f},
+        glm::vec4{0.0f, 0.0f, 0.0f, 1.0f},
+    };
+
+    return modelMatrix;
+}
+
 }} // class for getting mesh data based on crystal model cell
