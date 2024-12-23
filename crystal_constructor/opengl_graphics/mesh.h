@@ -21,6 +21,8 @@ private:
     std::vector<GLuint> indices_{};
 
     VAO vao_{};
+    VBO vbo_{vertices_};
+    EBO ebo_{indices_};
 };
 
 }} // class for handling mesh data

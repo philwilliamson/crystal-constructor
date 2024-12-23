@@ -6,13 +6,13 @@ Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices) : vertic
 {
     vao_.Bind();
 
-    VBO vbo(vertices);
-    EBO ebo(indices);
+    vbo_.Bind();
+    ebo_.Bind();
 
-    vao_.LinkAttrib(vbo, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0); // position
+    vao_.LinkAttrib(vbo_, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0); // position
     vao_.Unbind();
-    vbo.Unbind();
-    ebo.Unbind();
+    vbo_.Unbind();
+    ebo_.Unbind();
 }
 
 void Mesh::Draw(Shader& shader, Camera& camera, GLenum mode)
