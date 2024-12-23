@@ -14,9 +14,10 @@ class Mesh
 public:
     Mesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices);
 
-    void Draw(Shader& shader, Camera& camera, GLenum mode = GL_TRIANGLES);
+    void Draw(Shader& shader, Camera& camera, GLenum mode = GL_TRIANGLES) const;
 
     void SetVertices(std::vector<Vertex>& vertices);
+    void SetModelMatrix(glm::mat4 modelMatrix);
 
 private:
     std::vector<Vertex> vertices_{};
@@ -25,6 +26,8 @@ private:
     VAO vao_{};
     VBO vbo_{vertices_};
     EBO ebo_{indices_};
+
+    glm::mat4 modelMatrix_{1.0f};
 };
 
 }} // class for handling mesh data

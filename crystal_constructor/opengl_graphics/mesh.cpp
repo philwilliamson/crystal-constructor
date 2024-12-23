@@ -15,20 +15,26 @@ Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices) : vertic
     ebo_.Unbind();
 }
 
-void Mesh::Draw(Shader& shader, Camera& camera, GLenum mode)
+void Mesh::Draw(Shader& shader, Camera& camera, GLenum mode) const
 {
     shader.Activate();
     vao_.Bind();
 
+    shader.UpdateUniformMatrix4fv("modelMatrix", modelMatrix_);
     shader.UpdateUniformMatrix4fv("camMatrix", camera.GetMatrix());
 
     glDrawElements(mode, indices_.size(), GL_UNSIGNED_INT, 0);
 }
 
- void Mesh::SetVertices(std::vector<Vertex>& vertices)
- {
+void Mesh::SetVertices(std::vector<Vertex>& vertices)
+{
     vertices_ = vertices;
     vbo_.SetVertices(vertices);
- }
+}
+
+void Mesh::SetModelMatrix(glm::mat4 modelMatrix)
+{
+    modelMatrix_ = modelMatrix;
+}
 
 }} // class for handling mesh data
