@@ -1,2 +1,2 @@
-add_library(crystal_model crystal_model.cpp)
-target_link_libraries(crystal_model PUBLIC cxx_setup)
+add_library(crystal_model crystal_model.cpp mesh_crystal_cell_view.cpp)
+target_link_libraries(crystal_model PUBLIC glad cxx_setup)
