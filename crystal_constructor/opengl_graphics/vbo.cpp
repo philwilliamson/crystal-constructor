@@ -19,6 +19,12 @@ void VBO::Unbind() const
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
+void VBO::SetVertices(std::vector<Vertex>& vertices) const
+{
+    glBindBuffer(GL_ARRAY_BUFFER, ID_);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
+}
+
 void VBO::Delete() const
 {
     glDeleteBuffers(1, &ID_);

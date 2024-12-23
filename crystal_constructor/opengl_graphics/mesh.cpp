@@ -25,4 +25,10 @@ void Mesh::Draw(Shader& shader, Camera& camera, GLenum mode)
     glDrawElements(mode, indices_.size(), GL_UNSIGNED_INT, 0);
 }
 
+ void Mesh::SetVertices(std::vector<Vertex>& vertices)
+ {
+    vertices_ = vertices;
+    vbo_.SetVertices(vertices);
+ }
+
 }} // class for handling mesh data

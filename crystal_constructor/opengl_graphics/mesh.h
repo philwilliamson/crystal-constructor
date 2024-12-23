@@ -16,6 +16,8 @@ public:
 
     void Draw(Shader& shader, Camera& camera, GLenum mode = GL_TRIANGLES);
 
+    void SetVertices(std::vector<Vertex>& vertices);
+
 private:
     std::vector<Vertex> vertices_{};
     std::vector<GLuint> indices_{};

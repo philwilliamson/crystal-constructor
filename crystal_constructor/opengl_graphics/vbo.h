@@ -17,6 +17,7 @@ public:
 
     void Bind() const;
     void Unbind() const;
+    void SetVertices(std::vector<Vertex>& vertices) const;
     void Delete() const;
 
 private:
