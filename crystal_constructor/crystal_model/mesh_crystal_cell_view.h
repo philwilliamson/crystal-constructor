@@ -3,7 +3,9 @@
 
 #include <vector>
 
-#include <crystal_constructor/opengl_graphics/vbo.h>
+#include <glad/glad.h>
+
+#include <crystal_constructor/opengl_graphics/vertex.h>
 #include <crystal_constructor/crystal_model/crystal_model.h>
 
 namespace crystal_constructor{ namespace crystal_model {

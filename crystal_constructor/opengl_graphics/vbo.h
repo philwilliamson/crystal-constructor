@@ -6,12 +6,9 @@
 #include <glm/glm.hpp>
 #include <glad/glad.h>
 
-namespace crystal_constructor{ namespace opengl_graphics {
+#include <crystal_constructor/opengl_graphics/vertex.h>
 
-struct Vertex
-{
-    glm::vec3 position{};
-};
+namespace crystal_constructor{ namespace opengl_graphics {
 
 class VBO
 {
