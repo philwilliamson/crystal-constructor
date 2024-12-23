@@ -1,5 +1,5 @@
-#ifndef MESH_CRYSTAL_CELL_VIEW_H
-#define MESH_CRYSTAL_CELL_VIEW_H
+#ifndef GRAPHICS_CRYSTAL_MODEL_VIEW_H
+#define GRAPHICS_CRYSTAL_MODEL_VIEW_H
 
 #include <vector>
 
@@ -16,10 +16,10 @@ struct CellMeshData
     std::vector<GLuint> indices{};
 };
 
-class MeshCrystalCellView
+class GraphicsCrystalModelView
 {
 public:
-    explicit MeshCrystalCellView(const CrystalModel& crystalModel);
+    explicit GraphicsCrystalModelView(const CrystalModel& crystalModel);
 
     CellMeshData GetCellMeshData() const;
 

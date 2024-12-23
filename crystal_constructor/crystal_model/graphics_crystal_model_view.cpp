@@ -1,10 +1,10 @@
-#include <crystal_constructor/crystal_model/mesh_crystal_cell_view.h>
+#include <crystal_constructor/crystal_model/graphics_crystal_model_view.h>
 
 namespace crystal_constructor{ namespace crystal_model {
 
-MeshCrystalCellView::MeshCrystalCellView(const CrystalModel& crystalModel) : crystalModel_{crystalModel} {};
+GraphicsCrystalModelView::GraphicsCrystalModelView(const CrystalModel& crystalModel) : crystalModel_{crystalModel} {};
 
-CellMeshData MeshCrystalCellView::GetCellMeshData() const
+CellMeshData GraphicsCrystalModelView::GetCellMeshData() const
 {
     glm::mat3 basisMatrix{
         glm::vec3(0.0f, 0.0f, -1.0f),
