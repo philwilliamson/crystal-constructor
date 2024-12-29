@@ -18,4 +18,4 @@ std::string get_file_contents(const char* filename)
     throw(errno);
 }
 
-}} // various helper functions
+}} // parses file contents into a string
