@@ -1,9 +1,16 @@
 #ifndef CRYSTAL_MODEL_H
 #define CRYSTAL_MODEL_H
 
+#include <string>
+
 #include <crystal_constructor/crystal_model/vector.h>
 
 namespace crystal_constructor{ namespace crystal_model {
+
+struct Element {
+    std::string symbol{};
+    float color[3]{};
+};
 
 class CrystalModel
 {
