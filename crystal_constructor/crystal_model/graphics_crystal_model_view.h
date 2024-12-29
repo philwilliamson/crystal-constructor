@@ -1,28 +1,21 @@
 #ifndef GRAPHICS_CRYSTAL_MODEL_VIEW_H
 #define GRAPHICS_CRYSTAL_MODEL_VIEW_H
 
-#include <vector>
 #include <cmath>
 
 #include <glad/glad.h>
 
-#include <crystal_constructor/opengl_graphics/vertex.h>
 #include <crystal_constructor/crystal_model/crystal_model.h>
+#include <crystal_constructor/opengl_graphics/mesh_data.h>
 
 namespace crystal_constructor{ namespace crystal_model {
-
-struct CellMeshData
-{
-    std::vector<crystal_constructor::opengl_graphics::Vertex> vertices{};
-    std::vector<GLuint> indices{};
-};
 
 class GraphicsCrystalModelView
 {
 public:
     explicit GraphicsCrystalModelView(const CrystalModel& crystalModel);
 
-    CellMeshData GetCellMeshData() const;
+    crystal_constructor::opengl_graphics::MeshData GetCellMeshData() const;
     glm::mat4  GetModelMatrix() const;
 
 private:

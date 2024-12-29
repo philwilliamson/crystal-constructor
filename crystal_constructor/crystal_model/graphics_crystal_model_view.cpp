@@ -4,7 +4,7 @@ namespace crystal_constructor{ namespace crystal_model {
 
 GraphicsCrystalModelView::GraphicsCrystalModelView(const CrystalModel& crystalModel) : crystalModel_{crystalModel} {};
 
-CellMeshData GraphicsCrystalModelView::GetCellMeshData() const
+crystal_constructor::opengl_graphics::MeshData GraphicsCrystalModelView::GetCellMeshData() const
 {
     glm::mat3 basisMatrix{
         glm::vec3(0.0f, 0.0f, -1.0f),
@@ -61,7 +61,7 @@ CellMeshData GraphicsCrystalModelView::GetCellMeshData() const
         6, 7,
     };
     
-    CellMeshData cellMeshData{verts, inds};
+    crystal_constructor::opengl_graphics::MeshData cellMeshData{verts, inds};
 
     return cellMeshData;
 }
