@@ -10,6 +10,6 @@ namespace crystal_constructor{ namespace utils {
 
 std::string get_file_contents(const char* filename);
 
-}} // various helper functions
+}} // parsing file contents into a string
 
 #endif
