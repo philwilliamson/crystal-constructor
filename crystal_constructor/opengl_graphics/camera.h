@@ -14,7 +14,8 @@ class Camera
 public:
     explicit Camera(float aspect);
 
-    glm::mat4 GetMatrix() const;
+    glm::mat4 GetViewMatrix() const;
+    glm::mat4 GetProjMatrix() const;
 
     void UpdateFromInputs(GLFWwindow* window, float deltaTime);
     void SetAspect(float aspect);

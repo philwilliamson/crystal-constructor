@@ -22,7 +22,8 @@ void Mesh::Draw(Shader& shader, Camera& camera, GLenum mode) const
     vao_.Bind();
 
     shader.UpdateUniformMatrix4fv("modelMatrix", modelMatrix_);
-    shader.UpdateUniformMatrix4fv("camMatrix", camera.GetMatrix());
+    shader.UpdateUniformMatrix4fv("viewMatrix", camera.GetViewMatrix());
+    shader.UpdateUniformMatrix4fv("projMatrix", camera.GetProjMatrix());
 
     glDrawElements(mode, indices_.size(), GL_UNSIGNED_INT, 0);
 }

@@ -4,7 +4,7 @@ namespace crystal_constructor{ namespace opengl_graphics {
 
 Camera::Camera(float aspect) : aspect_{aspect} {}
 
-glm::mat4 Camera::GetMatrix() const
+glm::mat4 Camera::GetViewMatrix() const
 {
     glm::vec3 position = glm::vec3(
         radius_ * glm::sin(theta_) * glm::sin(phi_),
@@ -19,13 +19,18 @@ glm::mat4 Camera::GetMatrix() const
     
     glm::mat4 viewMat = glm::lookAt(position, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(up));
     
+    return viewMat;
+}
+
+glm::mat4 Camera::GetProjMatrix() const
+{
     glm::mat4 projectionMat = glm::ortho(
         -1.0f * aspect_, aspect_,
         -1.0f, 1.0f,
         0.1f, 100.0f
     );
 
-    return projectionMat * viewMat;
+    return projectionMat;
 }
 
 void Camera::UpdateFromInputs(GLFWwindow* window, float deltaTime)
