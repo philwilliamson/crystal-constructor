@@ -23,6 +23,10 @@ Vector3 CrystalModel::GetCHat() const {
     return c_hat_;
 }
 
+const std::vector<Atom>& CrystalModel::GetAtoms() const {
+    return atoms_;
+}
+
 CrystalModel& CrystalModel::SetAHat(Vector3 vector) {
     a_hat_ = vector;
     return *this;
@@ -35,6 +39,16 @@ CrystalModel& CrystalModel::SetBHat(Vector3 vector) {
 
 CrystalModel& CrystalModel::SetCHat(Vector3 vector) {
     c_hat_ = vector;
+    return *this;
+}
+
+CrystalModel& CrystalModel::AddAtom(Atom atom){
+    atoms_.push_back(atom);
+    return *this;
+}
+
+CrystalModel& CrystalModel::RemoveAtom(int index){
+    atoms_.erase(atoms_.begin() + index);
     return *this;
 }
 
