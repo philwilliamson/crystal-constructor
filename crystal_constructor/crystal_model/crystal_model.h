@@ -12,6 +12,11 @@ struct Element {
     float color[3]{};
 };
 
+struct Atom {
+    Element element{};
+    Vector3 position{};
+};
+
 class CrystalModel
 {
 public:
