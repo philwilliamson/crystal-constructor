@@ -10,6 +10,7 @@ Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<GLuint>& indices) : vertic
     ebo_.Bind();
 
     vao_.LinkAttrib(vbo_, 0, 3, GL_FLOAT, sizeof(Vertex), (void*)0); // position
+    vao_.LinkAttrib(vbo_, 1, 3, GL_FLOAT, sizeof(Vertex), (void*)(3 * sizeof(float))); // normal
     vao_.Unbind();
     vbo_.Unbind();
     ebo_.Unbind();
