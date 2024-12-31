@@ -25,10 +25,9 @@ crystal_constructor::opengl_graphics::MeshData gen_sphere_mesh_data(float radius
             radius * glm::sin(thetaDiff) * glm::cos(phiDiff * (widthIdx + 1))
         }};
 
-        glm::vec3 normal{glm::cross(glm::vec3(vert1.position - vert0.position), glm::vec3(vert2.position - vert0.position))};
-        vert0.normal = normal;
-        vert1.normal = normal;
-        vert2.normal = normal;
+        vert0.normal = glm::normalize(vert0.position);
+        vert1.normal = glm::normalize(vert1.position);
+        vert2.normal = glm::normalize(vert2.position);
 
         sphereMeshData.vertices.push_back(vert0);
         sphereMeshData.vertices.push_back(vert1);
@@ -68,11 +67,11 @@ crystal_constructor::opengl_graphics::MeshData gen_sphere_mesh_data(float radius
                 radius * glm::sin(thetaDiff * (heightIdx)) * glm::cos(phiDiff * (widthIdx + 1))
             }};
 
-            glm::vec3 normal{glm::cross(glm::vec3(vert1.position - vert0.position), glm::vec3(vert3.position - vert0.position))};
-            vert0.normal = normal;
-            vert1.normal = normal;
-            vert2.normal = normal;
-            vert3.normal = normal;
+            // glm::vec3 normal{glm::cross(glm::vec3(vert1.position - vert0.position), glm::vec3(vert3.position - vert0.position))};
+            vert0.normal = glm::normalize(vert0.position);
+            vert1.normal = glm::normalize(vert1.position);
+            vert2.normal = glm::normalize(vert2.position);
+            vert3.normal = glm::normalize(vert3.position);
 
             sphereMeshData.vertices.push_back(vert0);
             sphereMeshData.vertices.push_back(vert1);
@@ -107,9 +106,9 @@ crystal_constructor::opengl_graphics::MeshData gen_sphere_mesh_data(float radius
         }};
 
         glm::vec3 normal{glm::cross(glm::vec3(vert1.position - vert0.position), glm::vec3(vert2.position - vert0.position))};
-        vert0.normal = normal;
-        vert1.normal = normal;
-        vert2.normal = normal;
+        vert0.normal = glm::normalize(vert0.position);
+        vert1.normal = glm::normalize(vert1.position);
+        vert2.normal = glm::normalize(vert2.position);
 
         sphereMeshData.vertices.push_back(vert0);
         sphereMeshData.vertices.push_back(vert1);
@@ -121,14 +120,6 @@ crystal_constructor::opengl_graphics::MeshData gen_sphere_mesh_data(float radius
         
         vertexCount += 3;
     }
-
-
-    // for (int idx = 0; idx < sphereMeshData.vertices.size(); idx++)
-    // {
-    //     sphereMeshData.indices.push_back(idx);
-    // }
-    
-    
 
     return sphereMeshData;
 }
