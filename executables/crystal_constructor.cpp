@@ -190,7 +190,7 @@ int main() {
 
     crystal_constructor::opengl_graphics::Shader crystalCellShader{"shaders/crystal_cell_lines.vert", "shaders/crystal_cell_lines.frag"};
 
-    crystal_constructor::crystal_model::CellMeshData initialCellMeshData{graphicsCrystalModelView.GetCellMeshData()};
+    crystal_constructor::opengl_graphics::MeshData initialCellMeshData{graphicsCrystalModelView.GetCellMeshData()};
     crystal_constructor::opengl_graphics::Mesh crystalCellMesh{initialCellMeshData.vertices, initialCellMeshData.indices};
 
     crystal_constructor::opengl_graphics::Camera camera{currentAspect};
@@ -221,7 +221,7 @@ int main() {
         crystalModel.SetAHat(crystal_constructor::crystal_model::Vector3{guiAHat[0], guiAHat[1], guiAHat[2]});
         crystalModel.SetBHat(crystal_constructor::crystal_model::Vector3{guiBHat[0], guiBHat[1], guiBHat[2]});
         crystalModel.SetCHat(crystal_constructor::crystal_model::Vector3{guiCHat[0], guiCHat[1], guiCHat[2]});
-        crystal_constructor::crystal_model::CellMeshData updatedCellMeshData{graphicsCrystalModelView.GetCellMeshData()};
+        crystal_constructor::opengl_graphics::MeshData updatedCellMeshData{graphicsCrystalModelView.GetCellMeshData()};
         crystalCellMesh.SetVertices(updatedCellMeshData.vertices);
 
         crystalCellMesh.SetModelMatrix(graphicsCrystalModelView.GetModelMatrix());
