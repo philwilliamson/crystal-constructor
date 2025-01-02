@@ -19,6 +19,7 @@ public:
 
     void Activate() const;
     void UpdateUniformMatrix4fv(const char* name, glm::mat4 value) const;
+    void UpdateUniform3fv(const char* name, glm::vec3 value) const;
     void Delete() const;
 
 private:
