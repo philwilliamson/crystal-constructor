@@ -298,10 +298,15 @@ int main() {
         {
             crystalModel.AddAtom(crystal_constructor::crystal_model::Atom{elementOptions.at(guiNewAtomElementIdx), {guiNewAtomCoordinates[0], guiNewAtomCoordinates[1], guiNewAtomCoordinates[2]}});
         }
-        if (ImGui::BeginTable("Atoms List", 5))
+        if (ImGui::BeginTable("Atoms List", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2{0.0f, 0.0f}))
         {
+            ImGui::TableSetupScrollFreeze(0, 1);
             ImGui::TableSetupColumn("Element");
-            ImGui::TableSetupColumn("Position");
+            ImGui::TableSetupColumn("X Coord");
+            ImGui::TableSetupColumn("Y Coord");
+            ImGui::TableSetupColumn("Z Coord");
+            ImGui::TableSetupColumn("Remove?");
+            ImGui::TableHeadersRow();
 
             for (int idx = 0; idx < modelAtoms.size(); idx++)
             {
