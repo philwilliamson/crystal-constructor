@@ -43,7 +43,7 @@ CrystalModel& CrystalModel::SetCHat(Vector3 vector) {
 }
 
 CrystalModel& CrystalModel::AddAtom(Atom atom){
-    atoms_.push_back(atom);
+    atoms_.insert(atoms_.begin(), atom);
     return *this;
 }
 
