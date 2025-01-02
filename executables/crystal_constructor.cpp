@@ -9,6 +9,7 @@
 #include <crystal_constructor/opengl_graphics/mesh.h>
 #include <crystal_constructor/crystal_model/crystal_model.h>
 #include <crystal_constructor/crystal_model/graphics_crystal_model_view.h>
+#include <crystal_constructor/utils/gen_sphere_mesh_data.h>
 
 const unsigned int width = 1280;
 const unsigned int height = 720;
@@ -23,7 +24,6 @@ float guiCHat[3]{};
 
 int guiNewAtomElementIdx = 0;
 float guiNewAtomCoordinates[3]{};
-
 
 std::vector<crystal_constructor::crystal_model::Element> elementOptions{
     {"H", {(float)1, (float)1, (float)1}},
@@ -193,6 +193,11 @@ int main() {
     crystal_constructor::opengl_graphics::MeshData initialCellMeshData{graphicsCrystalModelView.GetCellMeshData()};
     crystal_constructor::opengl_graphics::Mesh crystalCellMesh{initialCellMeshData.vertices, initialCellMeshData.indices};
 
+    crystal_constructor::opengl_graphics::Shader atomShader{"shaders/atom.vert", "shaders/atom.frag"};
+
+    crystal_constructor::opengl_graphics::MeshData sphereMeshData{crystal_constructor::utils::gen_sphere_mesh_data(0.1f,50,50)};
+    crystal_constructor::opengl_graphics::Mesh atomMesh{sphereMeshData.vertices, sphereMeshData.indices};
+
     crystal_constructor::opengl_graphics::Camera camera{currentAspect};
 
     // Initialize ImGUI
@@ -234,6 +239,19 @@ int main() {
     
         crystalCellMesh.Draw(crystalCellShader, camera, GL_LINES);
 
+        const std::vector<crystal_constructor::crystal_model::AtomDrawData> modelAtomsDrawData{graphicsCrystalModelView.GetAtomsUniformData()};
+
+        for (int idx = 0; idx < modelAtomsDrawData.size(); idx++)
+        {
+            crystal_constructor::crystal_model::AtomDrawData currentAtomDrawData{modelAtomsDrawData.at(idx)};
+
+            atomShader.UpdateUniform3fv("atomColor", currentAtomDrawData.color);
+            atomMesh.SetModelMatrix(currentAtomDrawData.modelMatrix);
+
+            atomMesh.Draw(atomShader, camera);
+        }
+        
+
         ImGui::Begin("Crystal Basis");
         ImGui::PushItemWidth(-50);
         ImGui::DragFloat3("A Hat", guiAHat, 0.001f, 0.0f, 0.0f, "%.6f");
@@ -255,7 +273,7 @@ int main() {
         }
         ImGui::End();
 
-        const std::vector<crystal_constructor::crystal_model::Atom>& modelAtoms = crystalModel.GetAtoms();
+        const std::vector<crystal_constructor::crystal_model::Atom>& modelAtoms{crystalModel.GetAtoms()};
 
         ImGui::Begin("Atoms");
         ImGui::PushItemWidth(-150);
