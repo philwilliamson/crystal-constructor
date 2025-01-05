@@ -75,8 +75,10 @@ void GUIHandler::Draw()
     ImGui::DragFloat3("New Atom Coordinates", guiAddAtomCoordinates_, 0.001f, 0.0f, 0.999999f, "%.6f");
     if (ImGui::Button("Add Atom"))
     {
-        flags_.addAtomFlag = true;
-        // crystalModel.AddAtom(crystal_constructor::crystal_model::Atom{elementOptions.at(guiNewAtomElementIdx_), {guiNewAtomCoordinates[0], guiNewAtomCoordinates[1], guiNewAtomCoordinates[2]}});
+        addAtomParams_ = crystal_constructor::crystal_model::Atom{
+            elementOptions_.at(guiAddAtomElementIdx_),
+            {guiAddAtomCoordinates_[0], guiAddAtomCoordinates_[1], guiAddAtomCoordinates_[2]}
+        };
     }
     if (ImGui::BeginTable("Atoms List", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2{0.0f, 0.0f}))
     {
@@ -104,8 +106,6 @@ void GUIHandler::Draw()
             if (ImGui::Button("Remove"))
             {
                 removeAtomIdx_ = idx;
-                flags_.removeAtomFlag = true;
-                // crystalModel.RemoveAtom(idx);
             }
             ImGui::PopID();
         }
@@ -135,30 +135,20 @@ InputBasis GUIHandler::GetInputBasis() const
     return inputBasis_;
 };
 
-crystal_constructor::crystal_model::Atom GUIHandler::GetAddAtomParams() const
+std::optional<crystal_constructor::crystal_model::Atom> GUIHandler::GetAndResetAddAtomParams()
 {
-    crystal_constructor::crystal_model::Atom newAtom{
-        elementOptions_.at(guiAddAtomElementIdx_),
-        {guiAddAtomCoordinates_[0], guiAddAtomCoordinates_[1], guiAddAtomCoordinates_[2]}
-    };
+   std::optional<crystal_constructor::crystal_model::Atom> returnAddAtomParams{addAtomParams_};
+   addAtomParams_.reset();
 
-    return newAtom;
+    return returnAddAtomParams;
 };
 
-int GUIHandler::GetRemoveAtomIdx() const
+std::optional<int> GUIHandler::GetAndResetRemoveAtomIdx() 
 {
-    return removeAtomIdx_;
-};
-
-GUIFlags GUIHandler::GetFlags() const
-{
-    return flags_;
-};
-
-void GUIHandler::ResetFlags()
-{
-    flags_.addAtomFlag = false;
-    flags_.removeAtomFlag = false;
+    std::optional<int> returnRemoveAtomIdx{removeAtomIdx_};
+    removeAtomIdx_.reset();
+    
+    return returnRemoveAtomIdx;
 };
 
 }} // handles gui user inputs

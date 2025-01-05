@@ -2,6 +2,7 @@
 #define GUI_HANDLER_H
 
 #include <vector>
+#include <optional>
 
 #include <imgui.h>
 #include <backends/imgui_impl_glfw.h>
@@ -34,12 +35,9 @@ public:
 
     InputBasis GetInputBasis() const;
     
-    crystal_constructor::crystal_model::Atom GetAddAtomParams() const;
+    std::optional<crystal_constructor::crystal_model::Atom> GetAndResetAddAtomParams();
 
-    int GetRemoveAtomIdx() const;
-
-    GUIFlags GetFlags() const;
-    void ResetFlags();
+    std::optional<int> GetAndResetRemoveAtomIdx();
 
 private:
     const crystal_constructor::crystal_model::CrystalModel& crystalModel_{};
@@ -49,9 +47,8 @@ private:
     int guiAddAtomElementIdx_{0};
     float guiAddAtomCoordinates_[3]{};
     
-    int removeAtomIdx_{};
-
-    GUIFlags flags_{};
+    std::optional<crystal_constructor::crystal_model::Atom> addAtomParams_{};
+    std::optional<int> removeAtomIdx_{};
 
     std::vector<crystal_constructor::crystal_model::Element> elementOptions_{
         {"H", {(float)1, (float)1, (float)1}},

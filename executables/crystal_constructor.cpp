@@ -86,19 +86,17 @@ int main() {
             inputBasis.guiCHat[0], inputBasis.guiCHat[1], inputBasis.guiCHat[2]
         });
 
-        crystal_constructor::user_interface::GUIFlags guiFlags{guiHandler.GetFlags()};
-
-        if (guiFlags.addAtomFlag)
+        std::optional<crystal_constructor::crystal_model::Atom> newAtom{guiHandler.GetAndResetAddAtomParams()};
+        if (newAtom.has_value())
         {
-            crystalModel.AddAtom(guiHandler.GetAddAtomParams());
+            crystalModel.AddAtom(newAtom.value());
         }
 
-        if (guiFlags.removeAtomFlag)
+        std::optional<int> removeAtomIdx{guiHandler.GetAndResetRemoveAtomIdx()};
+        if (removeAtomIdx.has_value())
         {
-            crystalModel.RemoveAtom(guiHandler.GetRemoveAtomIdx());
+            crystalModel.RemoveAtom(removeAtomIdx.value());
         }
-        
-        guiHandler.ResetFlags();
         
         crystal_constructor::opengl_graphics::MeshData updatedCellMeshData{graphicsCrystalModelView.GetCellMeshData()};
         crystalCellMesh.SetVertices(updatedCellMeshData.vertices);
