@@ -1,0 +1,2 @@
+add_library(user_interface gui_handler.cpp)
+target_link_libraries(user_interface PUBLIC cxx_setup imgui)

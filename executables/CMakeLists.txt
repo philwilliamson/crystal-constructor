@@ -1,2 +1,2 @@
 add_executable(crystal_constructor crystal_constructor.cpp)
-target_link_libraries(crystal_constructor PRIVATE crystal_model opengl_graphics glfw glad imgui cxx_setup)
+target_link_libraries(crystal_constructor PRIVATE crystal_model opengl_graphics user_interface glfw glad cxx_setup)

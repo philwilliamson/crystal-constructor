@@ -13,4 +13,5 @@ target_include_directories(imgui PUBLIC external/imgui/)
 # crystal constructor libraries
 add_subdirectory(crystal_model)
 add_subdirectory(opengl_graphics)
+add_subdirectory(user_interface)
 add_subdirectory(utils)
