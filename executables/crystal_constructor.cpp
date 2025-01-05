@@ -30,7 +30,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL Demo", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(width, height, "Crystal Constructor", NULL, NULL);
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback); 
 
