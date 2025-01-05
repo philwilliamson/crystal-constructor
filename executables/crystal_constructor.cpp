@@ -24,11 +24,6 @@ void framebuffer_size_callback(GLFWwindow* window, int newWidth, int newHeight)
 }  
 
 int main() {
-
-    crystal_constructor::crystal_model::CrystalModel crystalModel{};
-    
-    crystal_constructor::crystal_model::GraphicsCrystalModelView graphicsCrystalModelView{crystalModel};
-
     // Load GLFW and Create a Window
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -51,19 +46,19 @@ int main() {
     gladLoadGL();
     glViewport(0, 0, width, height);
 
-    crystal_constructor::opengl_graphics::Shader crystalCellShader{"shaders/crystal_cell_lines.vert", "shaders/crystal_cell_lines.frag"};
+    crystal_constructor::crystal_model::CrystalModel crystalModel{};
+    crystal_constructor::crystal_model::GraphicsCrystalModelView graphicsCrystalModelView{crystalModel};
 
     crystal_constructor::opengl_graphics::MeshData initialCellMeshData{graphicsCrystalModelView.GetCellMeshData()};
     crystal_constructor::opengl_graphics::Mesh crystalCellMesh{initialCellMeshData.vertices, initialCellMeshData.indices};
 
-    crystal_constructor::opengl_graphics::Shader atomShader{"shaders/atom.vert", "shaders/atom.frag"};
-
     crystal_constructor::opengl_graphics::MeshData sphereMeshData{crystal_constructor::utils::gen_sphere_mesh_data(0.1f,50,50)};
     crystal_constructor::opengl_graphics::Mesh atomMesh{sphereMeshData.vertices, sphereMeshData.indices};
 
-    crystal_constructor::opengl_graphics::Camera camera{currentAspect};
-
     crystal_constructor::user_interface::GUIHandler guiHandler{crystalModel, window};
+    crystal_constructor::opengl_graphics::Camera camera{currentAspect};
+    crystal_constructor::opengl_graphics::Shader crystalCellShader{"shaders/crystal_cell_lines.vert", "shaders/crystal_cell_lines.frag"};
+    crystal_constructor::opengl_graphics::Shader atomShader{"shaders/atom.vert", "shaders/atom.frag"};
 
     glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
     glEnable(GL_DEPTH_TEST);
