@@ -18,11 +18,6 @@ struct InputBasis {
     float guiCHat[3]{};
 };
 
-struct GUIFlags {
-    bool addAtomFlag{false};
-    bool removeAtomFlag{false};
-};
-
 class GUIHandler
 {
 public:
