@@ -30,7 +30,7 @@ public:
 
     InputBasis GetInputBasis() const;
     
-    std::optional<crystal_constructor::crystal_model::Atom> GetAndResetAddAtomParams();
+    std::optional<crystal_constructor::crystal_model::Atom> GetAndResetAddOnAtomParams();
 
     std::optional<int> GetAndResetRemoveAtomIdx();
 
@@ -39,10 +39,10 @@ private:
     
     InputBasis inputBasis_{};
     
-    int guiAddAtomElementIdx_{0};
-    float guiAddAtomCoordinates_[3]{};
+    int guiAddOnAtomElementIdx_{0};
+    float guiAddOnAtomCoordinates_[3]{};
     
-    std::optional<crystal_constructor::crystal_model::Atom> addAtomParams_{};
+    std::optional<crystal_constructor::crystal_model::Atom> addOnAtomParams_{};
     std::optional<int> removeAtomIdx_{};
 
     std::vector<crystal_constructor::crystal_model::Element> elementOptions_{

@@ -56,14 +56,14 @@ void GUIHandler::Draw()
 
     ImGui::Begin("Atoms");
     ImGui::PushItemWidth(-150);
-    if (ImGui::BeginCombo("New Atom Element", elementOptions_.at(guiAddAtomElementIdx_).symbol.c_str()))
+    if (ImGui::BeginCombo("New Atom Element", elementOptions_.at(guiAddOnAtomElementIdx_).symbol.c_str()))
     {
         for (int idx = 0; idx < elementOptions_.size(); idx++)
         {
-            const bool isSelected = (guiAddAtomElementIdx_ == idx);
+            const bool isSelected = (guiAddOnAtomElementIdx_ == idx);
             if (ImGui::Selectable(elementOptions_.at(idx).symbol.c_str(), isSelected))
             {
-                guiAddAtomElementIdx_ = idx;
+                guiAddOnAtomElementIdx_ = idx;
             }
             if (isSelected)
             {
@@ -72,12 +72,12 @@ void GUIHandler::Draw()
         }
         ImGui::EndCombo();
     }
-    ImGui::DragFloat3("New Atom Coordinates", guiAddAtomCoordinates_, 0.001f, 0.0f, 0.999999f, "%.6f");
+    ImGui::DragFloat3("New Atom Coordinates", guiAddOnAtomCoordinates_, 0.001f, 0.0f, 0.999999f, "%.6f");
     if (ImGui::Button("Add Atom"))
     {
-        addAtomParams_ = crystal_constructor::crystal_model::Atom{
-            elementOptions_.at(guiAddAtomElementIdx_),
-            {guiAddAtomCoordinates_[0], guiAddAtomCoordinates_[1], guiAddAtomCoordinates_[2]}
+        addOnAtomParams_ = crystal_constructor::crystal_model::Atom{
+            elementOptions_.at(guiAddOnAtomElementIdx_),
+            {guiAddOnAtomCoordinates_[0], guiAddOnAtomCoordinates_[1], guiAddOnAtomCoordinates_[2]}
         };
     }
     if (ImGui::BeginTable("Atoms List", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2{0.0f, 0.0f}))
@@ -135,12 +135,12 @@ InputBasis GUIHandler::GetInputBasis() const
     return inputBasis_;
 };
 
-std::optional<crystal_constructor::crystal_model::Atom> GUIHandler::GetAndResetAddAtomParams()
+std::optional<crystal_constructor::crystal_model::Atom> GUIHandler::GetAndResetAddOnAtomParams()
 {
-   std::optional<crystal_constructor::crystal_model::Atom> returnAddAtomParams{addAtomParams_};
-   addAtomParams_.reset();
+   std::optional<crystal_constructor::crystal_model::Atom> returnAddOnAtomParams{addOnAtomParams_};
+   addOnAtomParams_.reset();
 
-    return returnAddAtomParams;
+    return returnAddOnAtomParams;
 };
 
 std::optional<int> GUIHandler::GetAndResetRemoveAtomIdx() 

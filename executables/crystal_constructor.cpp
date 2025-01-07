@@ -86,7 +86,7 @@ int main() {
             inputBasis.guiCHat[0], inputBasis.guiCHat[1], inputBasis.guiCHat[2]
         });
 
-        std::optional<crystal_constructor::crystal_model::Atom> newAtom{guiHandler.GetAndResetAddAtomParams()};
+        std::optional<crystal_constructor::crystal_model::Atom> newAtom{guiHandler.GetAndResetAddOnAtomParams()};
         if (newAtom.has_value())
         {
             crystalModel.AddOnAtom(newAtom.value());
