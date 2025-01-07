@@ -89,7 +89,7 @@ int main() {
         std::optional<crystal_constructor::crystal_model::Atom> newAtom{guiHandler.GetAndResetAddAtomParams()};
         if (newAtom.has_value())
         {
-            crystalModel.AddAtom(newAtom.value());
+            crystalModel.AddOnAtom(newAtom.value());
         }
 
         std::optional<int> removeAtomIdx{guiHandler.GetAndResetRemoveAtomIdx()};

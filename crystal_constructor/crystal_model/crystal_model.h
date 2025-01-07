@@ -34,7 +34,7 @@ public:
     CrystalModel& SetBHat(Vector3 vector);
     CrystalModel& SetCHat(Vector3 vector);
     
-    CrystalModel& AddAtom(Atom atom);
+    CrystalModel& AddOnAtom(Atom atom);
     CrystalModel& RemoveAtom(int index);
 
 private:
