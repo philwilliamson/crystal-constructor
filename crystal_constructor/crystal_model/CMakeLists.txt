@@ -1,2 +1,2 @@
 add_library(crystal_model crystal_model.cpp graphics_crystal_model_view.cpp)
-target_link_libraries(crystal_model PUBLIC glad cxx_setup)
+target_link_libraries(crystal_model PUBLIC cxx_setup glad glm)
