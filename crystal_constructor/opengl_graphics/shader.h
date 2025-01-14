@@ -25,7 +25,7 @@ public:
 private:
     GLuint ID_{};
 
-    void buildErrors(unsigned int shader, const char* type);
+    void BuildErrors(unsigned int shader, std::string type) const;
 };
 
 }} // class for handling shader programs

@@ -13,18 +13,18 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile)
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexSource, NULL);
     glCompileShader(vertexShader);
-    buildErrors(vertexShader, "VERTEX");
+    BuildErrors(vertexShader, "VERTEX");
 
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
     glCompileShader(fragmentShader);
-    buildErrors(fragmentShader, "FRAGMENT");
+    BuildErrors(fragmentShader, "FRAGMENT");
 
     ID_ = glCreateProgram();
     glAttachShader(ID_, vertexShader);
     glAttachShader(ID_, fragmentShader);
     glLinkProgram(ID_);
-    buildErrors(ID_, "PROGRAM");
+    BuildErrors(ID_, "PROGRAM");
 
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
@@ -52,7 +52,7 @@ void Shader::Delete() const
     glDeleteProgram(ID_);
 }
 
-void Shader::buildErrors(unsigned int shader, const char* type)
+void Shader::BuildErrors(unsigned int shader, std::string type) const
 {
     GLint buildSuccess;
     char infoLog[1024];
