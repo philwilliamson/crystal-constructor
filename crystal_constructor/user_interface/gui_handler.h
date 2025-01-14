@@ -39,7 +39,7 @@ private:
     
     InputBasis inputBasis_{};
     
-    int guiAddOnAtomElementIdx_{0};
+    std::vector<crystal_constructor::crystal_model::Element>::size_type selectedElementIdx_{0};
     float guiAddOnAtomCoordinates_[3]{};
     
     std::optional<crystal_constructor::crystal_model::Atom> addOnAtomParams_{};

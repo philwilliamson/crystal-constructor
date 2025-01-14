@@ -56,14 +56,14 @@ void GUIHandler::Draw()
 
     ImGui::Begin("Atoms");
     ImGui::PushItemWidth(-150);
-    if (ImGui::BeginCombo("New Atom Element", elementOptions_.at(guiAddOnAtomElementIdx_).symbol.c_str()))
+    if (ImGui::BeginCombo("New Atom Element", elementOptions_.at(selectedElementIdx_).symbol.c_str()))
     {
         for (std::vector<crystal_constructor::crystal_model::Element>::size_type idx = 0; idx < elementOptions_.size(); idx++)
         {
-            const bool isSelected = (guiAddOnAtomElementIdx_ == idx);
+            const bool isSelected = (selectedElementIdx_ == idx);
             if (ImGui::Selectable(elementOptions_.at(idx).symbol.c_str(), isSelected))
             {
-                guiAddOnAtomElementIdx_ = idx;
+                selectedElementIdx_ = idx;
             }
             if (isSelected)
             {
@@ -76,7 +76,7 @@ void GUIHandler::Draw()
     if (ImGui::Button("Add Atom"))
     {
         addOnAtomParams_ = crystal_constructor::crystal_model::Atom{
-            elementOptions_.at(guiAddOnAtomElementIdx_),
+            elementOptions_.at(selectedElementIdx_),
             {guiAddOnAtomCoordinates_[0], guiAddOnAtomCoordinates_[1], guiAddOnAtomCoordinates_[2]}
         };
     }
