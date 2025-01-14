@@ -108,7 +108,7 @@ int main() {
 
         const std::vector<crystal_constructor::crystal_model::AtomDrawData> modelAtomsDrawData{graphicsCrystalModelView.GetAtomsUniformData()};
 
-        for (int idx = 0; idx < modelAtomsDrawData.size(); idx++)
+        for (std::vector<crystal_constructor::crystal_model::AtomDrawData>::size_type idx = 0; idx < modelAtomsDrawData.size(); idx++)
         {
             crystal_constructor::crystal_model::AtomDrawData currentAtomDrawData{modelAtomsDrawData.at(idx)};
 

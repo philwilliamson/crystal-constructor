@@ -58,7 +58,7 @@ void GUIHandler::Draw()
     ImGui::PushItemWidth(-150);
     if (ImGui::BeginCombo("New Atom Element", elementOptions_.at(guiAddOnAtomElementIdx_).symbol.c_str()))
     {
-        for (int idx = 0; idx < elementOptions_.size(); idx++)
+        for (std::vector<crystal_constructor::crystal_model::Element>::size_type idx = 0; idx < elementOptions_.size(); idx++)
         {
             const bool isSelected = (guiAddOnAtomElementIdx_ == idx);
             if (ImGui::Selectable(elementOptions_.at(idx).symbol.c_str(), isSelected))
@@ -90,7 +90,7 @@ void GUIHandler::Draw()
         ImGui::TableSetupColumn("Remove?");
         ImGui::TableHeadersRow();
 
-        for (int idx = 0; idx < modelAtoms.size(); idx++)
+        for (std::vector<crystal_constructor::crystal_model::Atom>::size_type idx = 0; idx < modelAtoms.size(); idx++)
         {
             ImGui::TableNextRow();
             ImGui::TableNextColumn();
