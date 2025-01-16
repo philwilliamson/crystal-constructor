@@ -17,7 +17,7 @@ float currentAspect{(float)width / (float)height};
 float lastFrame{0.0f};
 } // working variables for graphics loop
 
-void framebuffer_size_callback(GLFWwindow* window, int newWidth, int newHeight)
+void framebuffer_size_callback(GLFWwindow* /*window*/, int newWidth, int newHeight)
 {
     currentAspect = (float)newWidth / (float)newHeight;
     glViewport(0, 0, newWidth, newHeight);
