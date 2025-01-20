@@ -23,6 +23,11 @@ GUIHandler::GUIHandler(const crystal_constructor::crystal_model::CrystalModel& c
 	ImGui::StyleColorsDark();
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 330");
+
+    if (!std::filesystem::exists("imgui.ini"))
+    {
+        ImGui::LoadIniSettingsFromDisk("DefaultLayout.ini");
+    }
 };
 
 void GUIHandler::Draw()

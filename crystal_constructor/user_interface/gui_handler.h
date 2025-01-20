@@ -1,6 +1,7 @@
 #ifndef GUI_HANDLER_H
 #define GUI_HANDLER_H
 
+#include <filesystem>
 #include <vector>
 #include <optional>
 
