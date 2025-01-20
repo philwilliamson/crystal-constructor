@@ -52,7 +52,7 @@ int main() {
     crystal_constructor::opengl_graphics::MeshData initialCellMeshData{graphicsCrystalModelView.GetCellMeshData()};
     crystal_constructor::opengl_graphics::Mesh crystalCellMesh{initialCellMeshData.vertices, initialCellMeshData.indices};
 
-    crystal_constructor::opengl_graphics::MeshData sphereMeshData{crystal_constructor::utils::gen_sphere_mesh_data(0.1f,50,50)};
+    crystal_constructor::opengl_graphics::MeshData sphereMeshData{crystal_constructor::utils::gen_sphere_mesh_data(0.53f,50,50)};
     crystal_constructor::opengl_graphics::Mesh atomMesh{sphereMeshData.vertices, sphereMeshData.indices};
 
     crystal_constructor::user_interface::GUIHandler guiHandler{crystalModel, window};
